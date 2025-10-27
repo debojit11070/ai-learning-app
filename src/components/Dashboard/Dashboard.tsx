@@ -11,9 +11,10 @@ interface DashboardProps {
   tasks: Task[];
   onStartTask: (task: Task) => void;
   onCompleteTask: (taskId: string) => void;
+  onGenerateNewTasks?: () => Promise<void>;
 }
 
-export function Dashboard({ user, tasks, onStartTask, onCompleteTask }: DashboardProps) {
+export function Dashboard({ user, tasks, onStartTask, onCompleteTask, onGenerateNewTasks }: DashboardProps) {
   const [showConfetti, setShowConfetti] = useState(false);
   const [currentQuote] = useState(() => 
     motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)]
@@ -35,9 +36,9 @@ export function Dashboard({ user, tasks, onStartTask, onCompleteTask }: Dashboar
   const handleGenerateNewTasks = async () => {
     setIsGeneratingTasks(true);
     try {
-      // This would typically update the tasks through the parent component
-      // For now, we'll just show the loading state
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      if (onGenerateNewTasks) {
+        await onGenerateNewTasks();
+      }
     } finally {
       setIsGeneratingTasks(false);
     }

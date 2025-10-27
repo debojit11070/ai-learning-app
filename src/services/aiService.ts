@@ -3,7 +3,7 @@ import { Question } from '../types';
 
 export class AIService {
   private static groq = new Groq({
-    apiKey: import.meta.env.VITE_GROQ_API_KEY || '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',
+    apiKey: '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',
     dangerouslyAllowBrowser: true
   });
 

@@ -100,28 +100,36 @@ export class TaskService {
           'Statistical Analysis Fundamentals',
           'Data Cleaning Techniques',
           'Exploratory Data Analysis',
-          'Advanced Analytics Methods'
+          'Advanced Analytics Methods',
+          'Machine Learning Basics',
+          'Data Mining Techniques'
         ],
         'Article': [
           'Choosing the Right Chart Type',
           'Data Quality Assessment',
           'Statistical Significance Explained',
           'Data Storytelling Techniques',
-          'Analytics Tools Comparison'
+          'Analytics Tools Comparison',
+          'Big Data Processing',
+          'Data Ethics and Privacy'
         ],
         'Exercise': [
           'Analyze Sales Data Trends',
           'Create Interactive Dashboards',
           'Perform Customer Segmentation',
           'Build Predictive Models',
-          'Design A/B Test Analysis'
+          'Design A/B Test Analysis',
+          'Clean Messy Datasets',
+          'Visualize Complex Data'
         ],
         'Quiz': [
           'Statistics Fundamentals Quiz',
           'Data Visualization Quiz',
           'Analytics Tools Knowledge Test',
           'Data Interpretation Quiz',
-          'Research Methods Quiz'
+          'Research Methods Quiz',
+          'Machine Learning Concepts Quiz',
+          'Data Ethics Quiz'
         ]
       },
       'Leadership': {
@@ -144,21 +152,35 @@ export class TaskService {
           'Conduct a Team Meeting',
           'Resolve a Workplace Conflict',
           'Create a Team Development Plan',
-          'Lead a Change Initiative'
+          'Lead a Change Initiative',
+          'Give Constructive Feedback',
+          'Mentor a Team Member'
         ],
         'Quiz': [
           'Leadership Principles Quiz',
           'Communication Skills Assessment',
           'Team Management Quiz',
           'Conflict Resolution Quiz',
-          'Strategic Thinking Test'
+          'Strategic Thinking Test',
+          'Emotional Intelligence Quiz',
+          'Change Management Quiz'
         ]
       }
     };
     
     const skillTemplates = titleTemplates[skill as keyof typeof titleTemplates];
     if (!skillTemplates) {
-      return `${skill} ${type} - ${level} Level`;
+      // Generate a generic title for skills not in our templates
+      const genericTitles = {
+        'Video': [`${skill} Fundamentals`, `Advanced ${skill} Concepts`, `${skill} Best Practices`],
+        'Article': [`${skill} Guide`, `${skill} Deep Dive`, `Understanding ${skill}`],
+        'Exercise': [`Practice ${skill}`, `${skill} Hands-on Lab`, `Build with ${skill}`],
+        'Quiz': [`${skill} Knowledge Test`, `${skill} Assessment`, `${skill} Quiz`]
+      };
+      
+      const titles = genericTitles[type as keyof typeof genericTitles] || [`${skill} ${type}`];
+      const randomIndex = Math.floor(Math.random() * titles.length);
+      return titles[randomIndex];
     }
     
     const typeTemplates = skillTemplates[type as keyof typeof skillTemplates];

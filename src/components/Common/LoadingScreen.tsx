@@ -18,13 +18,19 @@ export function LoadingScreen() {
         
         <div className="flex items-center justify-center space-x-2 text-white/80">
           <Loader className="w-5 h-5 animate-spin" />
-          <span className="text-lg">Preparing your learning experience...</span>
+          <span className="text-lg">Preparing your AI-powered learning experience...</span>
         </div>
         
         <div className="mt-8 w-64 h-1 bg-white/20 rounded-full mx-auto overflow-hidden">
           <div className="h-full bg-white rounded-full animate-pulse" style={{
             animation: 'loading 2s ease-in-out infinite'
           }}></div>
+        </div>
+        
+        <div className="mt-6 text-center">
+          <p className="text-white/60 text-sm">
+            ✨ Powered by AI • No signup required • Data saved locally
+          </p>
         </div>
       </div>
       

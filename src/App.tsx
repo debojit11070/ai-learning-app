@@ -247,6 +247,16 @@ function App() {
       const updatedUser = { ...user, ...userData };
       setUser(updatedUser);
       
+      // If skills changed, regenerate tasks
+      if (userData.skills && JSON.stringify(userData.skills) !== JSON.stringify(user.skills)) {
+        const newTasks = await TaskService.generateDailyTasks(updatedUser);
+        setTasks(prevTasks => {
+          const today = new Date().toISOString().split('T')[0];
+          const otherTasks = prevTasks.filter(task => task.date !== today);
+          return [...otherTasks, ...newTasks];
+        });
+      }
+      
       addNotification({
         id: Date.now().toString(),
         type: 'success',
@@ -281,6 +291,35 @@ function App() {
       title: 'Reset Complete',
       message: 'Your data has been reset. Start your learning journey again!',
     });
+  };
+
+  const handleGenerateNewTasks = async () => {
+    if (!user) return;
+    
+    try {
+      const today = new Date().toISOString().split('T')[0];
+      const newTasks = await TaskService.generateDailyTasks(user);
+      
+      // Replace today's tasks with new ones
+      setTasks(prevTasks => {
+        const otherTasks = prevTasks.filter(task => task.date !== today);
+        return [...otherTasks, ...newTasks];
+      });
+      
+      addNotification({
+        id: Date.now().toString(),
+        type: 'success',
+        title: 'New Tasks Generated!',
+        message: 'Fresh learning tasks have been created for today.',
+      });
+    } catch (error) {
+      addNotification({
+        id: Date.now().toString(),
+        type: 'error',
+        title: 'Error',
+        message: 'Failed to generate new tasks. Please try again.',
+      });
+    }
   };
 
   if (isLoading) {
@@ -333,6 +372,7 @@ function App() {
             tasks={todaysTasks}
             onStartTask={handleStartTask}
             onCompleteTask={handleCompleteTask}
+            onGenerateNewTasks={handleGenerateNewTasks}
           />
         )}
         
