@@ -253,25 +253,6 @@ export function ContentViewer({ task, onComplete, onBack }: ContentViewerProps) 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              {/* Bolt.new Badge - Top Left */}
-              <a
-                href="https://bolt.new"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all duration-300 hover:scale-110"
-              >
-                <img
-                  src="/assets/white_circle_360x360.png"
-                  alt="Made with Bolt.new"
-                  className="w-8 h-8 rounded-full shadow-lg dark:block hidden"
-                />
-                <img
-                  src="/assets/black_circle_360x360.png"
-                  alt="Made with Bolt.new"
-                  className="w-8 h-8 rounded-full shadow-lg dark:hidden block"
-                />
-              </a>
-
               <button
                 onClick={onBack}
                 className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors group"

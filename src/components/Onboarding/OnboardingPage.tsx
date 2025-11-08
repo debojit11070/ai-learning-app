@@ -279,25 +279,6 @@ export function OnboardingPage({ onComplete }: OnboardingPageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
-      {/* Bolt.new Badge - Top Left */}
-      <a
-        href="https://bolt.new"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed top-4 left-4 z-50 transition-all duration-300 hover:scale-110"
-      >
-        <img
-          src="/assets/white_circle_360x360.png"
-          alt="Made with Bolt.new"
-          className="w-10 h-10 rounded-full shadow-lg dark:block hidden"
-        />
-        <img
-          src="/assets/black_circle_360x360.png"
-          alt="Made with Bolt.new"
-          className="w-10 h-10 rounded-full shadow-lg dark:hidden block"
-        />
-      </a>
-
       <div className="max-w-2xl w-full">
         <div className="bg-white dark:bg-dark-card rounded-2xl shadow-xl p-8">
           <div className="mb-8">

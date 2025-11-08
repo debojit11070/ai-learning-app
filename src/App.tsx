@@ -410,23 +410,6 @@ function App() {
       </div>
 
       {/* Bolt.new Badge */}
-      <a
-        href="https://bolt.new"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 z-50 transition-all duration-300 hover:scale-110"
-      >
-        <img
-          src="https://raw.githubusercontent.com/kickiniteasy/bolt-hackathon-badge/main/assets/bolt-badge-white.png"
-          alt="Made with Bolt.new"
-          className="w-12 h-12 rounded-full shadow-lg dark:block hidden"
-        />
-        <img
-          src="https://raw.githubusercontent.com/kickiniteasy/bolt-hackathon-badge/main/assets/bolt-badge-black.png"
-          alt="Made with Bolt.new"
-          className="w-12 h-12 rounded-full shadow-lg dark:hidden block"
-        />
-      </a>
     </div>
   );
 }
