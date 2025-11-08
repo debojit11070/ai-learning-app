@@ -18,25 +18,6 @@ export function Header({ user, currentPage, onNavigate, onLogout }: HeaderProps)
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
-            {/* Bolt.new Badge - Top Left */}
-            <a
-              href="https://bolt.new"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-all duration-300 hover:scale-110"
-            >
-              <img
-                src="/assets/white_circle_360x360.png"
-                alt="Made with Bolt.new"
-                className="w-10 h-10 rounded-full shadow-lg dark:block hidden"
-              />
-              <img
-                src="/assets/black_circle_360x360.png"
-                alt="Made with Bolt.new"
-                className="w-10 h-10 rounded-full shadow-lg dark:hidden block"
-              />
-            </a>
-
             {/* App Logo and Title */}
             <button
               onClick={() => onNavigate('dashboard')}
